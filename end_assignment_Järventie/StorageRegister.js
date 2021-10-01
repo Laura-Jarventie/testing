@@ -11,9 +11,7 @@ module.exports = class StorageRegister {
 
   getById(id) {
     if (!id) throw new Error("parameter missing");
-
     const found = [];
-
     for (let computer of this.storageRegister) {
       for (let softis of computer.software) {
         if (computer.id === id) {

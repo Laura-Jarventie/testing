@@ -18,23 +18,25 @@ describe("Testing getById", () => {
   const storageRegister = new StorageRegister(datastorage);
 
   test('get object of the id number "1"', () => {
-    expect(storageRegister.getById("1")).toEqual({
-      id: "1",
-      manufacturer: "BMI",
-      type: "minitower",
-      accessories: ["keyboard", "display", "mouse"],
-      price: "250",
-      software: [
-        {
-          name: "Writer",
-          price: 123,
-        },
-        {
-          name: "Solitaire",
-          price: 10,
-        },
-      ],
-    });
+    expect(storageRegister.getById("1")).toEqual[
+      {
+        id: "1",
+        manufacturer: "BMI",
+        type: "minitower",
+        accessories: ["keyboard", "display", "mouse"],
+        price: "250",
+        software: [
+          {
+            name: "Writer",
+            price: 123,
+          },
+          {
+            name: "Solitaire",
+            price: 10,
+          },
+        ],
+      }
+    ];
   });
 
   test('non-matching id "0000" will return an empty array []', () => {
