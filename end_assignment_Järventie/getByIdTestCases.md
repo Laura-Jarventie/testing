@@ -13,14 +13,14 @@ Method searches the datastorage for an object with given key. Key is unique.
 Call
 
 ```js
-storageRegister.getById("1");
+storageRegister.getById(1);
 ```
 
 returns
 
 ```json
 {
-  "id": "1",
+  "id": 1,
   "manufacturer": "BMI",
   "type": "minitower",
   "accessories": ["keyboard", "display", "mouse"],
@@ -43,12 +43,12 @@ returns
 Call
 
 ```js
-storageRegister.getById("00000");
+storageRegister.getById(x);
 ```
 
-returns `null`.
+returns `"parameter should be valid id of a computer"`
 
-### 4. parameter missing
+### 3. parameter missing
 
 Call
 

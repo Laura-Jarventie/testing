@@ -10,7 +10,7 @@
 Call
 
 ```js
-storageRegister.hasAccessories("1");
+storageRegister.hasAccessories(1);
 ```
 
 returns
@@ -38,7 +38,7 @@ false
 Call
 
 ```js
-storageRegister.hasAccessories("3");
+storageRegister.hasAccessories(3);
 ```
 
 returns

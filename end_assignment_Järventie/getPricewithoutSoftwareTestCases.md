@@ -11,7 +11,7 @@ Returns the price with out software
 ### Test 1: get price of computer without software from default jsonData with parameter "id2"
 
 ```js
-storageRegister.getPriceWithoutSoftware("2");
+storageRegister.getPriceWithoutSoftware(2);
 ```
 
 returns
@@ -20,10 +20,10 @@ returns
 [350]
 ```
 
-### Test 2: if no computer with given id number 0000 is found an exception is thrown
+### Test 2: if no computer with given id number 4 is found an exception is thrown
 
 ```js
-storageRegister.getPriceWithoutSoftware("0000");
+storageRegister.getPriceWithoutSoftware(4);
 ```
 
 returns

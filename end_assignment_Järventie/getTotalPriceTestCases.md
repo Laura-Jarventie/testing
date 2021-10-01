@@ -11,7 +11,7 @@ Returns the total price of computer including the total price of the software
 ### Test 1: get total price of computer specifyed by id including total price of software
 
 ```js
-storageRegister.getTotalPrice("2");
+storageRegister.getTotalPrice(2);
 ```
 
 returns
@@ -23,7 +23,7 @@ returns
 ## Test 2: get total price of computer specifyed by id including total price of software when there are no softwares
 
 ```js
-storageRegister.getTotalPrice("3");
+storageRegister.getTotalPrice(3);
 ```
 
 returns
@@ -32,10 +32,10 @@ returns
 150
 ```
 
-### Test 3: if no computer with given id number 0000 is found an exception is thrown
+### Test 3: if no computer with given id number 4 is found an exception is thrown
 
 ```js
-storageRegister.getTotalPrice("0000");
+storageRegister.getTotalPrice(4);
 ```
 
 returns

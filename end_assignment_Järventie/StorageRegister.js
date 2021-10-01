@@ -11,25 +11,12 @@ module.exports = class StorageRegister {
 
   getById(id) {
     if (!id) throw new Error("parameter missing");
-    const found = [];
     for (let computer of this.storageRegister) {
-      for (let softis of computer.software) {
-        if (computer.id === id) {
-          found.push({
-            id: computer.id,
-            manufacturer: computer.manufacturer,
-            type: computer.type,
-            accessories: computer.accessories,
-            price: computer.price,
-            software: {
-              name: softis.name,
-              price: softis.price,
-            },
-          });
-        }
+      if (computer.id === id) {
+        return computer;
       }
     }
-    return found;
+    throw new Error("parameter should be valid id of a computer");
   }
 
   getAllIdsByManufacturer(manufacturer) {
@@ -56,20 +43,8 @@ module.exports = class StorageRegister {
     if (!type) throw new Error("missing parameter");
     const found = [];
     for (let computer of this.storageRegister) {
-      for (let softis of computer.software) {
-        if (computer.type === type) {
-          found.push({
-            id: computer.id,
-            manufacturer: computer.manufacturer,
-            type: computer.type,
-            accessories: computer.accessories,
-            price: computer.price,
-            software: {
-              name: softis.name,
-              price: softis.price,
-            },
-          });
-        }
+      if (computer.type === type) {
+        found.push(computer);
       }
     }
     return found;

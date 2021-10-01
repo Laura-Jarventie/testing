@@ -18,32 +18,34 @@ describe("Testing getById", () => {
   const storageRegister = new StorageRegister(datastorage);
 
   test('get object of the id number "1"', () => {
-    expect(storageRegister.getById("1")).toEqual[
-      {
-        id: "1",
-        manufacturer: "BMI",
-        type: "minitower",
-        accessories: ["keyboard", "display", "mouse"],
-        price: "250",
-        software: [
-          {
-            name: "Writer",
-            price: 123,
-          },
-          {
-            name: "Solitaire",
-            price: 10,
-          },
-        ],
-      }
-    ];
+    expect(storageRegister.getById(1)).toEqual({
+      id: 1,
+      manufacturer: "BMI",
+      type: "minitower",
+      accessories: ["keyboard", "display", "mouse"],
+      price: 250,
+      software: [
+        {
+          name: "Writer",
+          price: 123,
+        },
+        {
+          name: "Solitaire",
+          price: 10,
+        },
+      ],
+    });
   });
 
-  test('non-matching id "0000" will return an empty array []', () => {
-    expect(storageRegister.getById("0000")).toEqual([]);
+  test("parameter should be valid id of a computer", () => {
+    expect(() => {
+      computerStorage
+        .getById("x")
+        .toThrow("parameter should be valid id of a computer");
+    });
   });
 
-  test("missing parameter throws an exception", () => {
+  test("missing parameter throws error 'parameter missing'", () => {
     expect(() => storageRegister.getById()).toThrow("parameter missing");
   });
 });
@@ -52,11 +54,11 @@ describe("Testing getAllIdsByManufacturer", () => {
   const storageRegister = new StorageRegister(datastorage);
 
   test("get id from default jsonData with parameter BMI", () => {
-    expect(storageRegister.getAllIdsByManufacturer("BMI")).toEqual[("1", "3")];
+    expect(storageRegister.getAllIdsByManufacturer("BMI")).toEqual([1, 3]);
   });
 
   test("get id from default jsonData with parameter CERA", () => {
-    expect(storageRegister.getAllIdsByManufacturer("CERA")).toEqual["2"];
+    expect(storageRegister.getAllIdsByManufacturer("CERA")).toEqual([2]);
   });
 
   test("Non-matching manufacturer returns an empty array []", () => {
@@ -86,8 +88,8 @@ describe("Testing getAllComputerTypes", () => {
 describe("Testing getAllComputersByType", () => {
   const storageRegister = new StorageRegister(datastorage);
   test("use default jsonData with parameter type laptop", () => {
-    expect(storageRegister.getAllComputersByType("laptop")).toEqual[
-      ({
+    expect(storageRegister.getAllComputersByType("laptop")).toEqual([
+      {
         id: 2,
         manufacturer: "CERA",
         type: "laptop",
@@ -111,8 +113,8 @@ describe("Testing getAllComputersByType", () => {
         accessories: [],
         price: 150,
         software: [],
-      })
-    ];
+      },
+    ]);
   });
 
   test('non-matching type "NotFound" will return an empty array []', () => {
@@ -146,13 +148,15 @@ describe("Testing getComputerAccessories", () => {
   const storageRegister = new StorageRegister(datastorage);
 
   test("get accessories from default jsonData with parameter id1 ", () => {
-    expect(storageRegister.getComputerAccessories("1")).toEqual[
-      ("keyboard", "display", "mouse")
-    ];
+    expect(storageRegister.getComputerAccessories(1)).toEqual([
+      "keyboard",
+      "display",
+      "mouse",
+    ]);
   });
 
   test("if no accessories found, returns empty array from default jsonData with parameter id3", () => {
-    expect(storageRegister.getComputerAccessories("3")).toEqual([]);
+    expect(storageRegister.getComputerAccessories(3)).toEqual([]);
   });
 });
 
@@ -164,7 +168,7 @@ describe("Testing getPriceWithoutSoftware", () => {
   });
 
   test("if no computer with given id number is found an exception is thrown", () => {
-    expect(() => storageRegister.getPriceWithoutSoftware("0000")).toThrow(
+    expect(() => storageRegister.getPriceWithoutSoftware(4)).toThrow(
       "nothing found with given id"
     );
   });
@@ -181,9 +185,7 @@ describe("Testing getTotalPrice", () => {
   });
   test("wrong id", () => {
     expect(() =>
-      storageRegister
-        .getTotalPrice("000")
-        .toThrow("nothing found with given id")
+      storageRegister.getTotalPrice(4).toThrow("nothing found with given id")
     );
   });
 });
@@ -200,7 +202,7 @@ describe("Testing getPriceOfTheSoftware", () => {
   test("wrong id", () => {
     expect(() =>
       storageRegister
-        .getPriceOfTheSoftware("000")
+        .getPriceOfTheSoftware(4)
         .toThrow("nothing found with given id")
     );
   });

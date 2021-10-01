@@ -10,7 +10,7 @@ Returns an array of computer accessories. If none found, returns an empty array.
 ### Test 1: get accessories from default jsonData with parameter "1"
 
 ```js
-storageRegister.getComputerAccessories("1");
+storageRegister.getComputerAccessories(1);
 ```
 
 returns
@@ -22,7 +22,7 @@ returns
 ### Test 2: if no accessories found, returns empty array from default jsonData with parameter "3"
 
 ```js
-storageRegister.getComputerAccessories("3");
+storageRegister.getComputerAccessories(3);
 ```
 
 returns
