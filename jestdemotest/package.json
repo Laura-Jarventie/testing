@@ -1,0 +1,15 @@
+{
+  "name": "jestdemotest",
+  "version": "1.0.0",
+  "description": "tän mä kirjotin: structure of the jest tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

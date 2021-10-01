@@ -1,0 +1,16 @@
+{
+  "name": "carprojectAsync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "carstorageFileCallback.js",
+  "dependencies": {
+    "jest": "^27.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
